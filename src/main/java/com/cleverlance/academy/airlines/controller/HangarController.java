@@ -28,7 +28,7 @@ public class HangarController {
     }
 
     @RequestMapping(path = "/hangars", method = RequestMethod.POST)
-    public ResponseEntity addHangar(@RequestParam int id, @RequestParam String name) {
+    public ResponseEntity addHangar(@RequestParam Long id, @RequestParam String name) {
         service.addHangar(new Hangar(id, name, new ArrayList<>()));
         return new ResponseEntity(HttpStatus.CREATED);
     }

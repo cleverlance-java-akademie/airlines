@@ -35,7 +35,7 @@ public class AirplanesService implements IAirplanesService {
     }
 
     @Override
-    public Optional<Airplane> getAirplaneById(int id) {
+    public Optional<Airplane> getAirplaneById(final int id) {
         return repo.findById(id);
     }
 

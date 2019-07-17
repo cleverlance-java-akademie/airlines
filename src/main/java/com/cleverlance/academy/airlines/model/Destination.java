@@ -1,29 +1,24 @@
 package com.cleverlance.academy.airlines.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
 
-@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Hangar {
+public class Destination {
 
     @Id
     @GeneratedValue
-    private Long id;
-    private String name;
+    private Long destinationId;
 
-    @OneToMany
-    private List<Airplane> airplanes;
+    private String code;
+    private String name;
 
 }

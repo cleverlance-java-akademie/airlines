@@ -28,7 +28,7 @@ public class AirplanesController {
     }
 
     @RequestMapping(path = "/airplanes", method = RequestMethod.POST)
-    public ResponseEntity addAirplane(@RequestParam int id, @RequestParam int first, @RequestParam int economy, @RequestParam String regPlate) {
+    public ResponseEntity addAirplane(@RequestParam Long id, @RequestParam Long first, @RequestParam Long economy, @RequestParam String regPlate) {
         service.addAirplane(new Airplane(id, regPlate, first, economy));
         return new ResponseEntity(HttpStatus.CREATED);
     }

@@ -19,9 +19,9 @@ public class Airplane {
 
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String registrationCode;
-    private int firstClassSeats;
-    private int economyClassSeats;
+    private Long firstClassSeats;
+    private Long economyClassSeats;
 
 }
