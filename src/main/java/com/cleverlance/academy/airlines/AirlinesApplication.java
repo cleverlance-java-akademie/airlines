@@ -13,6 +13,11 @@ public class AirlinesApplication {
 
 		ApplicationContext ctx =  SpringApplication.run(AirlinesApplication.class);
 		AirPlaneRepository repo = ctx.getBean(AirPlaneRepository.class);
-		repo.createPlane(new Airplane(1,"Ok1234", 15, 15));
+		repo.createPlane(Airplane.builder()
+				.id(1)
+				.code("OK1234")
+				.numOfSeatsInFC(25)
+				.numOfSeatsInEC(123)
+				.build());
 	}
 }
