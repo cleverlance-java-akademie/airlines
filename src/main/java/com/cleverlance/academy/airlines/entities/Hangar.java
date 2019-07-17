@@ -1,6 +1,9 @@
 package com.cleverlance.academy.airlines.entities;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,13 +14,11 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Airplane {
-    private String registrationSign;
-    private int seatsEconomy;
-    private int seatsPremium;
+public class Hangar {
 
     @Id
     @GeneratedValue
     private long id;
+    private String name;
 
 }

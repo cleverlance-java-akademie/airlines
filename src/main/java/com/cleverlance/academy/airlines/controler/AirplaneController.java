@@ -1,16 +1,11 @@
-package com.cleverlance.academy.airlines.Controler;
+package com.cleverlance.academy.airlines.controler;
 
 import com.cleverlance.academy.airlines.entities.Airplane;
-import com.cleverlance.academy.airlines.repositories.AirplaneRepository;
 import com.cleverlance.academy.airlines.service.IAirplaneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
-import java.time.Duration;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class AirplaneController {

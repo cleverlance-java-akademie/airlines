@@ -16,21 +16,22 @@ public class AirplaneService implements IAirplaneService {
 
     @Override
     public List<Airplane> getAllPlanes() {
-        return airplaneRepository.getAirplanes();
+        return airplaneRepository.findAll();
     }
 
     @Override
     public void deletePlane(long id) {
-        airplaneRepository.deleteAirplane(id);
+        airplaneRepository.deleteById(id);
     }
 
     @Override
     public void updatePlane(Airplane airplane) {
-        airplaneRepository.updateAirplane(airplane);
+        airplaneRepository.saveAndFlush(airplane);
     }
 
     @Override
     public void addPlane(Airplane airplane) {
-        airplaneRepository.createAirplane(airplane);
+
+        airplaneRepository.saveAndFlush(airplane);
     }
 }
