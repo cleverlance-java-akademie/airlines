@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines;
+package com.cleverlance.academy.airlines.controllers;
 
 import com.cleverlance.academy.airlines.model.Plane;
 import com.cleverlance.academy.airlines.service.IHangarService;

@@ -14,10 +14,6 @@
 	<name>airlines</name>
 	<description>Projekt CLV akademie</description>
 
-	<properties>
-		<java.version>10</java.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
