@@ -14,13 +14,9 @@ import javax.persistence.Id;
 @AllArgsConstructor // defines all members to be build in constructor
 @NoArgsConstructor
 @Entity
-public class Plane {
-
+public class Hangar {
     @Id
     @GeneratedValue
-    private Long id;
-    private String registrationCode;
-    private Integer economy;
-    private Integer firstClass;
+    private Long hangarId;
+    private String name;
 }
-
