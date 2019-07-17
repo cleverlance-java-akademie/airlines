@@ -1,7 +1,6 @@
 package com.cleverlance.academy.airlines.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,19 +8,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/*LomBok*/
-@Data /*creates setters & getters*/
-@AllArgsConstructor /*all arguments constructor*/
+@Data
 @NoArgsConstructor
-@Builder
-/*JPA*/
+@AllArgsConstructor
 @Entity
-public class Plane
+public class Destination
 {
     @Id
     @GeneratedValue
-    private long id;
-    private String registrationCode;
-    private int numberInFirstClass;
-    private int numberInEconomyClass;
+    private Long destinationId;
+
+    private String code;
+    private String name;
 }

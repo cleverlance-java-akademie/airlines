@@ -43,4 +43,10 @@ public class PlaneService implements IPlaneService
     {
         planeRepository.saveAndFlush(plane);
     }
+
+    @Override
+    public Optional<Plane> getPlaneByRegistrationCode(final String registrationCode)
+    {
+        return Optional.ofNullable(planeRepository.getPlaneByRegistrationCode(registrationCode));
+    }
 }
