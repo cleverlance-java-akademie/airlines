@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AircraftController {
@@ -17,10 +18,12 @@ public class AircraftController {
     public List<Aircraft> getPlane(){
         return aircraftService.getAllPlanes();
     }
+
     @RequestMapping(path = "/planes", method = RequestMethod.POST)
     public void createPlane(@RequestBody Aircraft aircraft){
         aircraftService.createPlane(aircraft);
     }
+
     @RequestMapping(path = "/planes{id}", method = RequestMethod.DELETE)
     public void deletePlane(@RequestParam int id){
         aircraftService.deletePlane(id);
@@ -29,5 +32,11 @@ public class AircraftController {
     @RequestMapping(path = "/planes", method = RequestMethod.PUT)
     public void updatePlane(@RequestBody Aircraft aircraft){
         aircraftService.updatePlane(aircraft);
+    }
+
+    @RequestMapping(path = "/planes/{registrationCode}", method = RequestMethod.GET)
+    public Aircraft getPlaneByRegCode(@PathVariable("registrationCode") String registrationCode){
+        final Optional<Aircraft> aircraft = aircraftService.getPlaneByRegCode(registrationCode);
+        return aircraft.get();
     }
 }

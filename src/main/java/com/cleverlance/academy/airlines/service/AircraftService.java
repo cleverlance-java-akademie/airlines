@@ -36,6 +36,11 @@ public class AircraftService implements IAircraftService {
         saveAndFlush(aircraft);
     }
 
+    @Override
+    public Optional<Aircraft> getPlaneByRegCode(String regCode) {
+        return Optional.ofNullable(aircraftRepo.getPlaneByRegCode(regCode));
+    }
+
     public Optional<Aircraft> getAircraftById (int aircraftId){
         return aircraftRepo.findById(aircraftId);
     }
