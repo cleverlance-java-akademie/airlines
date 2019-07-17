@@ -22,8 +22,8 @@ public class PlaneController
         return planeService.getAllPlanes();
     }
 
-    @RequestMapping(path = "/planes", method = RequestMethod.POST)
-    public void post(@RequestBody Plane plane)
+    @RequestMapping(path = "/planes", method = RequestMethod.PUT)
+    public void update(@RequestBody Plane plane)
     {
         planeService.updatePlane(plane);
     }
@@ -34,7 +34,7 @@ public class PlaneController
         planeService.deletePlane(plane.getId());
     }
 
-    @RequestMapping(path = "/planes", method = RequestMethod.PUT)
+    @RequestMapping(path = "/planes", method = RequestMethod.POST)
     public void create(@RequestBody Plane plane)
     {
         planeService.createPlane(plane);

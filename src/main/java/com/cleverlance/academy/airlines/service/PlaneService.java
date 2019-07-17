@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlaneService implements IPlaneService
@@ -29,6 +30,12 @@ public class PlaneService implements IPlaneService
     public void updatePlane(Plane plane)
     {
         planeRepository.saveAndFlush(plane);
+    }
+
+    @Override
+    public Optional<Plane> getPlaneById(final Long planeId)
+    {
+        return planeRepository.findById(planeId);
     }
 
     @Override
