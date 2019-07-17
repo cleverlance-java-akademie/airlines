@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlaneService implements IPlaneService{
@@ -33,5 +34,15 @@ public class PlaneService implements IPlaneService{
     public void createPlane(Airplane aP){
         aR.saveAndFlush(aP);
 
+    }
+
+    @Override
+    public Optional<Airplane> getPlaneById(final Long id) {
+        return aR.findById(id);
+    }
+
+    @Override
+    public Optional<Airplane> getPlaneByCode(final String code) {
+        return Optional.ofNullable(aR.getPlaneByCode(code));
     }
 }

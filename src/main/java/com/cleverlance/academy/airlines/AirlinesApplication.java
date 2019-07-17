@@ -23,7 +23,7 @@ public class AirlinesApplication {
 				.numOfSeatsInEC(123)
 				.build());
 		hSer.createHangar(Hangar.builder()
-				.id(1)
+				.id((long) 1)
 				.name("Pavlovo")
 				.build());
 
