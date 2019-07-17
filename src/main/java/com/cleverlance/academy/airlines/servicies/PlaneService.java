@@ -1,6 +1,6 @@
-package com.cleverlance.academy.airlines.Servicies;
+package com.cleverlance.academy.airlines.servicies;
 
-import com.cleverlance.academy.airlines.Repository.AirPlaneRepository;
+import com.cleverlance.academy.airlines.repository.AirPlaneRepository;
 import com.cleverlance.academy.airlines.entities.Airplane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,22 +13,25 @@ public class PlaneService implements IPlaneService{
     @Autowired
     AirPlaneRepository aR;
 
+    @Override
     public List<Airplane> getAllAirplanes(){
-        return aR.getAllPlanes();
+        return aR.findAll();
     }
 
+    @Override
     public void deletePlane(long id){
-        aR.deletePlane(id);
+        aR.deleteById(id);
 
     }
 
-    public void updatePlane(long id, Airplane aP){
-        aR.deletePlane(id);
-        aR.createPlane(aP);
+    @Override
+    public void updatePlane(Airplane aP){
+        aR.saveAndFlush(aP);
     }
 
+    @Override
     public void createPlane(Airplane aP){
-        aR.createPlane(aP);
+        aR.saveAndFlush(aP);
 
     }
 }

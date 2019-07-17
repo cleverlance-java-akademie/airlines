@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines.Servicies;
+package com.cleverlance.academy.airlines.servicies;
 
 import com.cleverlance.academy.airlines.entities.Airplane;
 
@@ -10,7 +10,7 @@ public interface IPlaneService {
 
     void deletePlane(long id);
 
-    void updatePlane(long id, Airplane aP);
+    void updatePlane(Airplane aP);
 
     void createPlane(Airplane aP);
 }

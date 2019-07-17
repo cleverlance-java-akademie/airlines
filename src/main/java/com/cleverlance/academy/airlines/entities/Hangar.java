@@ -14,13 +14,10 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Airplane {
+public class Hangar {
 
     @Id
     @GeneratedValue
-    private long id;
-
-    private String code;
-    private int numOfSeatsInFC;
-    private int numOfSeatsInEC;
+    private int id;
+    private String name;
 }
