@@ -41,6 +41,6 @@ public class AirplanesService implements IAirplanesService {
 
     @Override
     public Optional<Airplane> getAirplaneByRegistrationCode(String registrationCode) {
-        return repo.getAirplaneByRegistrationCode(registrationCode);
+        return Optional.ofNullable(repo.getAirplaneByRegistrationCode(registrationCode));
     }
 }

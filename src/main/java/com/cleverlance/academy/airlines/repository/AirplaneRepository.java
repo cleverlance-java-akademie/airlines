@@ -6,12 +6,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 
-import java.util.Optional;
-
 @Component
 public interface AirplaneRepository extends JpaRepository<Airplane, Integer> {
 
     @Query("select airplane from Airplane airplane where airplane.registrationCode = :registrationCode")
-    Optional<Airplane> getAirplaneByRegistrationCode(@Param("registrationCode") String registrationCode);
+    Airplane getAirplaneByRegistrationCode(@Param("registrationCode") String registrationCode);
 
 }
