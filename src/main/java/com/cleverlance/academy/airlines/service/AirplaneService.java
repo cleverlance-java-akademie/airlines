@@ -41,4 +41,9 @@ public class AirplaneService implements IAirplaneService {
         return airplaneRepository.findById(id);
 
     }
+
+    @Override
+    public Optional<Airplane> getAirplaneByCode(String regCode) {
+        return Optional.ofNullable(airplaneRepository.getAirplaneByCode(regCode));
+    }
 }

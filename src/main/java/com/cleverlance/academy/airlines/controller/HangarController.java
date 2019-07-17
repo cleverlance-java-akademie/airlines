@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines.controler;
+package com.cleverlance.academy.airlines.controller;
 
 
 import com.cleverlance.academy.airlines.entities.Airplane;

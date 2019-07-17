@@ -17,4 +17,6 @@ public interface IAirplaneService {
     void addPlane(Airplane airplane);
 
     Optional<Airplane> getAirplaneById(long id);
+
+    Optional<Airplane> getAirplaneByCode(String regCode);
 }

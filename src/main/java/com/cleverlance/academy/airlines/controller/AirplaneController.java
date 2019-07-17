@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines.controler;
+package com.cleverlance.academy.airlines.controller;
 
 import com.cleverlance.academy.airlines.entities.Airplane;
 import com.cleverlance.academy.airlines.service.IAirplaneService;
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class AirplaneController {
@@ -16,6 +17,15 @@ public class AirplaneController {
     @RequestMapping(path = "/airplanes", method = RequestMethod.GET)
     public List<Airplane> listAllAirplanes(){
         return airplaneService.getAllPlanes();
+    }
+
+    @RequestMapping(path = "/airplanes/{regCode}", method = RequestMethod.GET)
+    public Airplane getAirplaneByCode(@PathVariable("regCode") String code){
+        Optional<Airplane> airplane = airplaneService.getAirplaneByCode(code);
+        if(airplane.isPresent()){
+            return airplane.get();
+        }
+        return null;
     }
 
 

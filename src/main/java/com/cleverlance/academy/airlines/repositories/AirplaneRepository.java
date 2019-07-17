@@ -2,6 +2,8 @@ package com.cleverlance.academy.airlines.repositories;
 
 import com.cleverlance.academy.airlines.entities.Airplane;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -9,6 +11,9 @@ import java.util.*;
 //@Component
 //@Repository
 public interface AirplaneRepository extends JpaRepository<Airplane, Long> {
+
+    @Query("select airplane from Airplane airplane where airplane.registrationSign = :code")
+    Airplane getAirplaneByCode(@Param("code") String regCode);
 
 //    private final Map<Long,Airplane> airplanes = new HashMap<>();
 //
