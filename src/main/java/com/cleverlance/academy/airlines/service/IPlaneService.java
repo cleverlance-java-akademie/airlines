@@ -16,4 +16,6 @@ public interface IPlaneService {
     void createPlane(Plane plane);
 
     Optional<Plane> getPlaneById(Long id);
+
+    Optional<Plane> getPlaneByRegistrationCode(String regCode);
 }

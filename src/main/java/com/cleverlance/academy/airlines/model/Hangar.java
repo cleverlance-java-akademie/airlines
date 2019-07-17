@@ -17,10 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Hangar {
+
     @Id
     @GeneratedValue
     private Long hangarId;
     private String name;
+
     @OneToMany
     private List<Plane> planes;
 }

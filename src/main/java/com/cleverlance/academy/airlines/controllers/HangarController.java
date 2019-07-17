@@ -39,7 +39,7 @@ public class HangarController {
         hangarService.updateHangar(hangar);
     }
 
-    @RequestMapping(path = "/hangards/{hangarId}/{plane}", method = RequestMethod.PUT)
+    @RequestMapping(path = "/hangars/{hangarId}/{plane}", method = RequestMethod.PUT)
     public void parkPlaneToHangar(@PathVariable("hangarId") Long hangarId,
                                   @PathVariable("plane") Long planeId) {
         final Optional<Hangar> hangar = hangarService.getHangarById(hangarId);
