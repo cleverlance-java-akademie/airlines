@@ -1,0 +1,23 @@
+package com.cleverlance.academy.airlines.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class Destination {
+
+    @Id
+    @GeneratedValue
+    private Long destinationId;
+
+    private String code;
+    private String name;
+}
