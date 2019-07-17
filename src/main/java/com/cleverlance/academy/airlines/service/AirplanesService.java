@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class AirplanesService implements IAirplanesService {
@@ -24,12 +25,22 @@ public class AirplanesService implements IAirplanesService {
     }
 
     @Override
-    public void removeAirplane(final int regPlate) {
-        repo.deleteById(regPlate);
+    public void removeAirplane(final int id) {
+        repo.deleteById(id);
     }
 
     @Override
     public void updateAirplane(final Airplane airplane) {
         repo.saveAndFlush(airplane);
+    }
+
+    @Override
+    public Optional<Airplane> getAirplaneById(int id) {
+        return repo.findById(id);
+    }
+
+    @Override
+    public Optional<Airplane> getAirplaneByRegistrationCode(String registrationCode) {
+        return repo.getAirplaneByRegistrationCode(registrationCode);
     }
 }

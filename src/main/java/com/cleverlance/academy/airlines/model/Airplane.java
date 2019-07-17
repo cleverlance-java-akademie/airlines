@@ -20,7 +20,7 @@ public class Airplane {
     @Id
     @GeneratedValue
     private int id;
-    private String regPlate;
+    private String registrationCode;
     private int firstClassSeats;
     private int economyClassSeats;
 
