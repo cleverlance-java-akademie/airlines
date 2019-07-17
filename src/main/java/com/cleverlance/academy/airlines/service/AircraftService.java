@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines.Service;
+package com.cleverlance.academy.airlines.service;
 
 import com.cleverlance.academy.airlines.entity.Aircraft;
 import com.cleverlance.academy.airlines.repository.AircraftRepo;

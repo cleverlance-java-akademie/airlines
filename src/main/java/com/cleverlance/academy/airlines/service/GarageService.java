@@ -1,6 +1,5 @@
-package com.cleverlance.academy.airlines.Service;
+package com.cleverlance.academy.airlines.service;
 
-import com.cleverlance.academy.airlines.entity.Aircraft;
 import com.cleverlance.academy.airlines.entity.Garage;
 import com.cleverlance.academy.airlines.repository.GarageRepo;
 import org.springframework.beans.factory.annotation.Autowired;
