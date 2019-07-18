@@ -31,12 +31,7 @@ public class TicketController {
     @RequestMapping(value = "/tickets/init", method = RequestMethod.PUT)
     public void init(){
 
-        Destination start = Destination.builder().name("Praha").build();
-        Destination end =  Destination.builder().name("Moskva").build();
-        Flight f = Flight.builder().start(start).end(end).build();
-        Traveler t = Traveler.builder().firstName("Alois").lastName("Kolomaz").build();
-
-        fR.saveAndFlush(f);
+        Traveler t = Traveler.builder().firstName("Alois").lastName("Kolomaz").build();;
         tR.saveAndFlush(t);
 
     }
