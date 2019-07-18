@@ -1,0 +1,15 @@
+language: java
+sudo: true
+before_install:
+  - chmod +x mvnw
+cache:
+  directories:
+    - $HOME/.m2
+script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: 61456dec-68ef-4d71-9359-2243be4cb19e
+  app: clv-akademie-2019-sofrondr
+  on:
+    all_branches: true
