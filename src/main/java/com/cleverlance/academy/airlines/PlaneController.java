@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PlaneController {
@@ -30,5 +31,14 @@ public class PlaneController {
     @RequestMapping(path = "/planes", method = RequestMethod.DELETE)
     public void deletePlane(@RequestParam int id){
         planes.deletePlane(id);
+    }
+
+    @RequestMapping(path = "/planes/{registerCode}", method = RequestMethod.GET)
+    public Plane getPlaneDetails(@PathVariable("registerCode") String registerCode){
+        final Optional<Plane> plane = planes.getPlaneByRegCode(registerCode);
+        if(plane.isPresent()){
+            return plane.get();
+        }
+        return null;
     }
 }

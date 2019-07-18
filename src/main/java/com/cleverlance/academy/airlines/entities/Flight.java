@@ -5,10 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -16,13 +14,22 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Hangar {
+public class Flight {
 
     @Id
     @GeneratedValue
-    private int id;
-    private String name;
+    private long flightId;
+
+    private String code;
+
+    private ZonedDateTime date;
+
+    @ManyToOne
+    private Destination end;
+
+    @ManyToOne
+    private Destination start;
 
     @OneToMany
-    private List<Plane> planes;
+    private List<Ticket> tickets;
 }

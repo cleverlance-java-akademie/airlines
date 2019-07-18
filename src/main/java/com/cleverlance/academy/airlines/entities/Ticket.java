@@ -8,21 +8,30 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
+import javax.persistence.ManyToOne;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Hangar {
+public class Ticket {
 
     @Id
     @GeneratedValue
-    private int id;
-    private String name;
+    private long ticketId;
 
-    @OneToMany
-    private List<Plane> planes;
+    private double price;
+
+    private FlightClass flightClass;
+
+    private String seat;
+
+    private TicketStatus ticketStatus;
+
+    @ManyToOne
+    private Flight flight;
+
+    @ManyToOne
+    private Traveller traveler;
 }

@@ -8,21 +8,19 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Hangar {
+public class Traveller {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long travellerId;
     private String name;
+    private String documentId;
+    private DocumentType documentType;
 
-    @OneToMany
-    private List<Plane> planes;
 }
