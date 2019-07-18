@@ -29,8 +29,8 @@ public class AirportService implements IAirportService {
     @Override
     public Destination getARandomAirport() {
         List<Destination> flights = getAllAirports();
-        Random random = new Random();
-        return flights.get(random.nextInt() % flights.size());
+        Random random = new Random(System.currentTimeMillis());
+        return flights.get(random.nextInt(flights.size()));
     }
 
     @Scheduled(fixedRate = 3600000)

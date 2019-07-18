@@ -9,7 +9,7 @@ script: mvn clean verify
 deploy:
   provider: heroku
   api_key:
-    secure: 3cb5a73f-32e0-476e-82a0-2c63d3d3e8b4
+    secure: "$API_KEY"
   app: davidmares
   on:
     all_branches: true

@@ -16,8 +16,13 @@ public class AirportsController {
     @Autowired
     IAirportService airportService;
 
-    @RequestMapping(value = "/airports", method = RequestMethod.GET)
+    @RequestMapping(path = "/airports", method = RequestMethod.GET)
     public List<Destination> getAllAirports() {
         return airportService.getAllAirports();
+    }
+
+    @RequestMapping(path = "/airports/random", method = RequestMethod.GET)
+    public Destination getRandomAirport() {
+        return airportService.getARandomAirport();
     }
 }
