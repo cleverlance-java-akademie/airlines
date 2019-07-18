@@ -16,14 +16,14 @@ import java.util.List;
 public class AirportController {
 
     @Autowired
-    private IAirportClient airportClient;
+    private DestinationRepository dR;
 
     @Autowired
     DestinationService dS;
 
     @RequestMapping(value = "/airports", method = RequestMethod.GET)
     public List<Destination> getAllAirports(){
-        return airportClient.getAllAirports();
+        return dR.findAll();
     }
 
     @RequestMapping(value = "/airports", method = RequestMethod.POST)
