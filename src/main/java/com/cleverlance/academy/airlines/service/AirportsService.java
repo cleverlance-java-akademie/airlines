@@ -1,7 +1,7 @@
 package com.cleverlance.academy.airlines.service;
 
-import com.cleverlance.academy.airlines.entity.client.IAirportClient;
 import com.cleverlance.academy.airlines.entity.Destination;
+import com.cleverlance.academy.airlines.entity.client.AirportClient;
 import com.cleverlance.academy.airlines.repository.DestinationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class AirportsService implements IAirportsService {
 
     @Autowired
-    private IAirportClient airportClient;
+    private AirportClient airportClient;
 
     @Autowired
     private DestinationRepo destinationRepository;
@@ -28,7 +28,7 @@ public class AirportsService implements IAirportsService {
 
     @Scheduled(fixedRate = 3600000)
     private void updateAirports() {
-        final List<Destination> apiAirports = getAllAirports();
+        final List<Destination> apiAirports = airportClient.getAllAirports();
         final List<Destination> cachedAirports = destinationRepository.findAll();
 
         final Map<String, Destination> cachedAirportsMap = cachedAirports
@@ -36,8 +36,8 @@ public class AirportsService implements IAirportsService {
 
         final Map<String, Destination> apiAirportsMap = apiAirports
                 .stream().collect(Collectors.toMap(Destination::getCode, item -> item));
-        addAirports(cachedAirportsMap, apiAirportsMap);
-        deleteAirports(cachedAirportsMap, apiAirportsMap);
+        addAirports(new HashMap<>(cachedAirportsMap), new HashMap<>(apiAirportsMap));
+        deleteAirports(new HashMap<>(cachedAirportsMap), new HashMap<>(apiAirportsMap));
     }
 
     private void addAirports(final Map<String, Destination> cachedAirportsMap,
