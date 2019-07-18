@@ -1,22 +1,41 @@
 package com.cleverlance.academy.airlines.controller;
 
 import com.cleverlance.academy.airlines.entities.Airplane;
+import com.cleverlance.academy.airlines.mapper.AirplaneMapper;
+import com.cleverlance.academy.airlines.mapper.AirportMapper;
 import com.cleverlance.academy.airlines.service.IAirplaneService;
+import generated.rest.api.AirplanesApi;
+import generated.rest.model.AirplaneGen;
+import generated.rest.model.AirplaneListGen;
+import generated.restclient.model.AirportGen;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @RestController
-public class AirplaneController {
+public class AirplaneController implements AirplanesApi {
 
     @Autowired
     private IAirplaneService airplaneService;
 
+    @Autowired
+    private AirplaneMapper airplaneMapper;
+
     @RequestMapping(path = "/airplanes", method = RequestMethod.GET)
-    public List<Airplane> listAllAirplanes(){
-        return airplaneService.getAllPlanes();
+    @Override
+    public CompletableFuture<ResponseEntity<AirplaneListGen>> getPlanes(){
+        List<Airplane> result = airplaneService.getAllPlanes();
+        List<AirplaneGen> responseList = result.stream()
+                .map(item -> airplaneMapper.convertToAirplaneGen(item))
+                .collect(Collectors.toList());
+        AirplaneListGen response = new AirplaneListGen();
+        response.addAll(responseList);
+        return new CompletableFuture.completedFuture(ResponseEntity.ok(response));
     }
 
     @RequestMapping(path = "/airplanes/{regCode}", method = RequestMethod.GET)
