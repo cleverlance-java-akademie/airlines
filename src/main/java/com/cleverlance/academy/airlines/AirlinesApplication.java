@@ -11,7 +11,7 @@ public class AirlinesApplication
     public static void main(String[] args)
     {
 
-        
+
         SpringApplication.run(AirlinesApplication.class, args);
     }
 
