@@ -16,3 +16,20 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+
+definitions:
+  PlaneList:
+    type: array
+    items:
+      $ref: '#/definitions/Plane'
+  Plane:
+    type: object
+    properties:
+      registrationCode:
+        type: string
+      firstClass:
+        type: integer
+      economy:
+        type: integer
+
