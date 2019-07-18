@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface IAirportClient {
 
-    List<Destination> getALlAirports();
+    List<Destination> getAllAirports();
 
 }

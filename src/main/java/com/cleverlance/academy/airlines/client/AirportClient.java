@@ -38,7 +38,7 @@ public class AirportClient implements IAirportClient {
     }
 
     @Override
-    public List<Destination> getALlAirports() {
+    public List<Destination> getAllAirports() {
         try {
             final ResponseGen result = airportApi.getAllAirports(apiKey);
             return convertToDestinations(result.getResponse());
