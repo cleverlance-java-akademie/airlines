@@ -161,7 +161,7 @@
 							<generateModelTests>false</generateModelTests>
 							<generateSupportingFiles>false</generateSupportingFiles>
 							<configOptions>
-								<title>${project.parent.name}</title>
+								<title>${project.name}</title>
 								<sourceFolder>/src/main/java</sourceFolder>
 								<apiPackage>generated.rest.api</apiPackage>
 								<modelPackage>generated.rest.model</modelPackage>
@@ -199,7 +199,7 @@
 							<generateModelTests>false</generateModelTests>
 							<generateSupportingFiles>true</generateSupportingFiles>
 							<configOptions>
-								<title>${project.parent.name}</title>
+								<title>${project.name}</title>
 								<sourceFolder>/src/main/java</sourceFolder>
 								<apiPackage>generated.restclient.api</apiPackage>
 								<modelPackage>generated.restclient.model</modelPackage>

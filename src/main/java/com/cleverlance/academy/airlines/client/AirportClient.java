@@ -5,6 +5,7 @@ import com.cleverlance.academy.airlines.model.Destination;
 import generated.restclient.ApiClient;
 import generated.restclient.ApiException;
 import generated.restclient.api.AirportApi;
+import generated.restclient.model.AirportGen;
 import generated.restclient.model.AirportListGen;
 import generated.restclient.model.ResponseGen;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +31,6 @@ public class AirportClient implements IAirportClient {
     @Autowired
     private AirportMapper airportMapper;
 
-
     @Value("${airlines.airports.key}")
     private String apiKey;
 
@@ -41,17 +42,23 @@ public class AirportClient implements IAirportClient {
     @Override
     public List<Destination> getAllAirports() {
         try {
-            final ResponseGen result = airportApi.getAllAirports(apiKey);
-            return convertToDestinations(result.getResponse());
-        } catch (final ApiException e) {
-            log.error("Failed to call airport", e);
+            ResponseGen res = airportApi.getAllAirports(apiKey);
+            return convertToDestinationList(res.getResponse());
+        } catch (ApiException e) {
+            log.error("Error ", e);
         }
         return Collections.emptyList();
     }
 
-    private List<Destination> convertToDestinations(final AirportListGen list) {
-        return list.stream()
-                .map(item -> airportMapper.convertToDestination(item))
+    private List<Destination> convertToDestinationList(AirportListGen airportListGen) {
+        return airportListGen.stream().map(airportMapper::convertToDestination)
                 .collect(Collectors.toList());
     }
+
+//    private Destination convertToDestination(final AirportGen airportGen) {
+//        return Destination.builder()
+//                .code(airportGen.getCode())
+//                .name(airportGen.getName())
+//                .build();
+//    }
 }

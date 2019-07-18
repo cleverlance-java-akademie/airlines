@@ -1,8 +1,6 @@
 package com.cleverlance.academy.airlines.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -11,9 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
 
-@Data
+// lombok
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+// JPA
 @Entity
 public class Hangar {
 

@@ -10,11 +10,9 @@ import javax.ws.rs.client.ClientBuilder;
 @Configuration
 public class ClientConfig {
 
-    @Value("${airlines.airports.url}")
-    private String url;
-
     @Bean
-    public ApiClient apiClient() {
+    @Value("${airlines.airports.url}")
+    public ApiClient apiClient(final String url) {
         final ApiClient apiClient = new ApiClient();
 
         apiClient.setBasePath(url);

@@ -6,6 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
 public interface AirportMapper {
-
-    Destination convertToDestination(AirportGen airport);
+    Destination convertToDestination(AirportGen airportGen);
 }
