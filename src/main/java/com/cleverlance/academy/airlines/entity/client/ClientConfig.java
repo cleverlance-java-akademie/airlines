@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines.client;
+package com.cleverlance.academy.airlines.entity.client;
 
 import generated.restclient.ApiClient;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,7 +1,5 @@
 package com.cleverlance.academy.airlines.controllers;
 
-import com.cleverlance.academy.airlines.client.AirportClient;
-import com.cleverlance.academy.airlines.entity.Aircraft;
 import com.cleverlance.academy.airlines.entity.Destination;
 import com.cleverlance.academy.airlines.service.AirportsService;
 import org.springframework.beans.factory.annotation.Autowired;

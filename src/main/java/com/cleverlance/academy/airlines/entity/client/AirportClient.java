@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines.client;
+package com.cleverlance.academy.airlines.entity.client;
 
 import com.cleverlance.academy.airlines.entity.Destination;
 import com.cleverlance.academy.airlines.mapper.IAirportMapper;
