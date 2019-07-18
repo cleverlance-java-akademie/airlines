@@ -20,7 +20,7 @@ public class Ticket {
     private ClassEnum flightClass;
     private int seat;
     private Status status;
-    @OneToMany
+    @ManyToOne
     private Flight flight;
     @ManyToOne
     private Traveler traveler;
