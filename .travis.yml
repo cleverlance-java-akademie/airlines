@@ -1,0 +1,15 @@
+language: java
+sudo: true
+before_install:
+  - chmod +x mvnw
+cache:
+  directories:
+    - $HOME/.m2
+script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: 3fd5174e-641e-47ad-b28a-a2811598c724
+  app: clv-akademie-2019-stejskal
+  on:
+    all_branches: true

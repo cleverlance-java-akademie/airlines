@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface IAirportService
 {
-    public List<Destination> getAllAirports();
+    List<Destination> getAllAirports();
+
+    Destination getRandomAirport();
 }
