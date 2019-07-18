@@ -19,7 +19,6 @@ public class Destination {
     @Id
     @GeneratedValue
     private Long destinationId;
-
     private String code;
 
     private String name;
