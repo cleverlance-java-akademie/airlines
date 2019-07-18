@@ -36,8 +36,8 @@ public class AirportsService implements IAirportsService {
 
         final Map<String, Destination> apiAirportsMap = apiAirports
                 .stream().collect(Collectors.toMap(Destination::getCode, item -> item));
-        addAirports(new HashMap<>(cachedAirportsMap), new HashMap<>(apiAirportsMap));
-        deleteAirports(new HashMap<>(cachedAirportsMap), new HashMap<>(apiAirportsMap));
+        addAirports(cachedAirportsMap, apiAirportsMap);
+        deleteAirports(cachedAirportsMap, apiAirportsMap);
     }
 
     private void addAirports(final Map<String, Destination> cachedAirportsMap,
