@@ -1,0 +1,15 @@
+language: java
+sudo: true
+before_install:
+  - chmod +x mvnw
+cache:
+  directories:
+    - $HOME/.m2
+script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: 5c6e656d-eafe-4359-b77f-eebb17799006
+  app: clv-akademie-gritsdmi
+  on:
+    all_branches: true
