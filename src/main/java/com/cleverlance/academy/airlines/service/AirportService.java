@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 public class AirportService {
 
     @Autowired
-    private IAirportClient iAirportclient;
+    private IAirportClient iAirportClient;
     @Autowired
     private AirportDestinationRepository airportDestinationRepository;
 
 
-    @Scheduled(fixedRate = 36000000)
+    @Scheduled(fixedRate = 3600000)
     private void updateAirports() {
-        final List<Destination> apiAirports = iAirportclient.getAllAirports();
+        final List<Destination> apiAirports = iAirportClient.getAllAirports();
         final List<Destination> cachedAirports = airportDestinationRepository.findAll();
 
         final Map<String, Destination> cachedAirportsMap = cachedAirports.stream().collect(Collectors.toMap(Destination::getCode, item -> item));

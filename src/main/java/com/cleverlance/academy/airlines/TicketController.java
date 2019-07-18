@@ -1,4 +1,4 @@
-package com.cleverlance.academy.airlines;
+/*package com.cleverlance.academy.airlines;
 
 
 import com.cleverlance.academy.airlines.model.Ticket;
@@ -20,3 +20,4 @@ public class TicketController {
     }
 
 }
+*/

@@ -1,7 +1,7 @@
-package com.cleverlance.academy.airlines.service;
+/*package com.cleverlance.academy.airlines.service;
 
 
-public class TicketService {/*
+public class TicketService {
     @Autowired
     private TicketRepository ticketRepository;
     @Autowired
@@ -21,5 +21,6 @@ public class TicketService {/*
 
     @Override
     public void createTicket(final Ticket ticket) {ticketRepository.saveAndFlush(ticket);}
-*/
+
 }
+*/
