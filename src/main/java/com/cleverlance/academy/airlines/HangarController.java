@@ -1,10 +1,16 @@
 package com.cleverlance.academy.airlines;
 
+import com.cleverlance.academy.airlines.mapper.HangarMapper;
+import com.cleverlance.academy.airlines.mapper.PlaneMapper;
 import com.cleverlance.academy.airlines.model.Hangar;
 import com.cleverlance.academy.airlines.model.Plane;
 import com.cleverlance.academy.airlines.service.IHangarService;
 import com.cleverlance.academy.airlines.service.IPlaneService;
+import generated.rest.api.HangarsApi;
+import generated.rest.model.HangarListGen;
+import generated.rest.model.HangarGen;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 @RestController
-public class HangarController {
+public class HangarController implements HangarsApi {
 
     @Autowired
     private IHangarService hangarService;
@@ -23,9 +31,18 @@ public class HangarController {
     @Autowired
     private IPlaneService planeService;
 
+    @Autowired
+    private PlaneMapper hangarMapper;
+
     @RequestMapping(path = "/hangars", method = RequestMethod.GET)
-    public List<Hangar> getHangar() {
-        return hangarService.getAllHangars();
+    @Override
+    public CompletableFuture<ResponseEntity<HangarListGen>> getHangar() {
+        final List<Hangar> result = hangarService.getAllHangars();
+        result.stream().map(item -> HangarMapper.convertToHangarGen(item)).collect(Collectors.toList());
+        List<HangarGen> responseList = result.stream().map(item -> HangarMapper.convertToHangarGen(item)).collect(Collectors.toList());
+        HangarListGen response = new HangarListGen();
+        response.addAll(responseList);
+        return CompletableFuture.completedFuture(ResponseEntity.ok(response));
     }
 
     @RequestMapping(path = "/hangars", method = RequestMethod.POST)

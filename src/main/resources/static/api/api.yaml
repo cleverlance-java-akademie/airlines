@@ -7,8 +7,11 @@ host: api.example.com
 schemes:
   - https
 paths:
-  /users:
+  /planes:
     get:
+      tags:
+        - planes
+      operationId: getPlanes
       summary: Returns a list of users.
       description: Optional extended description in Markdown.
       produces:
@@ -16,3 +19,47 @@ paths:
       responses:
         200:
           description: OK
+          schema:
+            $ref: '#/definitions/PlaneList'
+  /hangars:
+    get:
+      tags:
+        - hangars
+      operationId: getHangar
+      summary: Returns a list of users.
+      description: Optional extended description in Markdown.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/HangarList'
+
+definitions:
+  PlaneList:
+    type: array
+    items:
+      $ref: '#/definitions/Plane'
+  Plane:
+    type: object
+    properties:
+      registrationCode:
+        type: string
+      firstClass:
+        type: integer
+      economy:
+        type: integer
+  HangarList:
+    type: array
+    items:
+      $ref: '#/definitions/Hangar'
+    Hangar:
+      type: object
+      properties:
+        hangarId:
+          type: long
+        name:
+          type: String
+        planes:
+          type: List<Plane>
