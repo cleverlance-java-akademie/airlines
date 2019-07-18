@@ -10,6 +10,6 @@ deploy:
   provider: heroku
   api_key:
     secure: "e5435b03-35c5-40d7-b2ce-721745123cb7"
-  app: clv-akademie-2019
+  app: maraclv
   on:
     all_branches: true
