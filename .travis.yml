@@ -9,7 +9,7 @@ script: mvn clean verify
 deploy:
   provider: heroku
   api_key:
-    secure: "$API_KEY"
+    secure: "d4d80d1c-3129-40a6-a39b-33df32ad7f10"
   app: clv-academy-airports
   on:
     all_branches: true
