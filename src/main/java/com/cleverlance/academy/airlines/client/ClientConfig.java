@@ -10,7 +10,7 @@ import javax.ws.rs.client.ClientBuilder;
 @Configuration
 public class ClientConfig {
 
-    @Value("airlines.airports.url")
+    @Value("${airlines.airports.url}")
     private String url;
 
     @Bean
