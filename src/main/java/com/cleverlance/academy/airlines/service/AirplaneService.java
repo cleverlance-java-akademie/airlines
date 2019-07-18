@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PlaneService implements IPlaneService {
+public class AirplaneService implements IAirplaneService {
 
     @Autowired
     private PlaneRepository planeRepository;

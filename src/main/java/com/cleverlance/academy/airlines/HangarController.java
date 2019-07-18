@@ -3,7 +3,7 @@ package com.cleverlance.academy.airlines;
 import com.cleverlance.academy.airlines.model.Hangar;
 import com.cleverlance.academy.airlines.model.Plane;
 import com.cleverlance.academy.airlines.service.IHangarService;
-import com.cleverlance.academy.airlines.service.IPlaneService;
+import com.cleverlance.academy.airlines.service.IAirplaneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +21,7 @@ public class HangarController {
     private IHangarService hangarService;
 
     @Autowired
-    private IPlaneService planeService;
+    private IAirplaneService planeService;
 
     @RequestMapping(path = "/hangars", method = RequestMethod.GET)
     public List<Hangar> getHangar() {

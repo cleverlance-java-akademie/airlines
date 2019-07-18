@@ -5,7 +5,7 @@ import com.cleverlance.academy.airlines.model.Plane;
 import java.util.List;
 import java.util.Optional;
 
-public interface IPlaneService {
+public interface IAirplaneService {
 
     List<Plane> getAllPlanes();
 
