@@ -7,7 +7,6 @@ import generated.restclient.ApiException;
 import generated.restclient.api.AirportApi;
 import generated.restclient.model.AirportListGen;
 import generated.restclient.model.ResponseGen;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
-public class IAirportClient implements IAirportClient, IAirportService {
+public class AirportClient implements IAirportClient {
 
     private AirportApi airportApi;
 
@@ -29,6 +28,7 @@ public class IAirportClient implements IAirportClient, IAirportService {
 
     @Autowired
     private AirportMapper airportMapper;
+
 
     @Value("${airlines.airports.key}")
     private String apiKey;
@@ -44,13 +44,14 @@ public class IAirportClient implements IAirportClient, IAirportService {
             final ResponseGen result = airportApi.getAllAirports(apiKey);
             return convertToDestinations(result.getResponse());
         } catch (final ApiException e) {
-            log.error("Failed to call Airport", e);
+            log.error("Failed to call airport", e);
         }
         return Collections.emptyList();
     }
 
-    private List<Destination> convertToDestinations(final AirportListGen list){
-        return list.stream().map(item -> airportMapper.convertToDestination(item)).collect(Collectors.toList());
-
+    private List<Destination> convertToDestinations(final AirportListGen list) {
+        return list.stream()
+                .map(item -> airportMapper.convertToDestination(item))
+                .collect(Collectors.toList());
     }
 }
