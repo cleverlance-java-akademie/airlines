@@ -1,6 +1,7 @@
 package com.cleverlance.academy.airlines.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class Flight {
 
     @Id
@@ -20,9 +22,9 @@ public class Flight {
 
     private String code;
     private ZonedDateTime date;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Destination start;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     private Destination end;
     @OneToMany
     private List<Ticket> tickets;
