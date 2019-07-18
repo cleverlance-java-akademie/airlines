@@ -1,0 +1,15 @@
+language: java
+sudo: true
+before_install:
+  - chmod +x mvnw
+cache:
+  directories:
+    - $HOME/.m2
+script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: 0c623d6e-eb77-4b39-a69b-031f2c12d918
+  app: ticket-seller-akademie
+  on:
+    all_branches: true
