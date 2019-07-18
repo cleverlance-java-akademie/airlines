@@ -23,7 +23,7 @@ public class AirportsService implements IAirportsService {
 
     @Override
     public List<Destination> getAllAirports() {
-        return airportClient.getAllAirports();
+        return destinationRepository.findAll();
     }
 
     @Scheduled(fixedRate = 3600000)
