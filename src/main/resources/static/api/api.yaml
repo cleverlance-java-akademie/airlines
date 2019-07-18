@@ -7,12 +7,59 @@ host: api.example.com
 schemes:
   - https
 paths:
-  /users:
+  /planes:
     get:
-      summary: Returns a list of users.
+      tags:
+        - Planes
+      operationId: getPlanes
+      summary: Returns a list of planes.
       description: Optional extended description in Markdown.
       produces:
         - application/json
       responses:
         200:
           description: OK
+          schema:
+            $ref: '#/definitions/PlaneList'
+
+  /hangars:
+    get:
+      tags:
+        - Hangars
+      operationId: getHangars
+      summary: Returns a list of hangars.
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/HangarList'
+
+definitions:
+  PlaneList:
+    type: array
+    items:
+      $ref: '#/definitions/Plane'
+  Plane:
+    type: object
+    properties:
+      registrationCode:
+        type: string
+      firstClass:
+        type: integer
+      economy:
+        type: integer
+  HangarList:
+    type: array
+    items:
+      $ref: '#/definitions/Hangar'
+  Hangar:
+      type: object
+      properties:
+        name:
+          type: string
+        planes:
+          type: array
+          items:
+            $ref: '#/definitions/Plane'
