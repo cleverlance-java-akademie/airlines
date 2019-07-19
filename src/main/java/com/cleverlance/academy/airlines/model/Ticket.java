@@ -1,7 +1,6 @@
 package com.cleverlance.academy.airlines.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +13,6 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Builder
 public class Ticket {
 
     @Id
@@ -30,8 +28,8 @@ public class Ticket {
     private TicketStatus ticketStatus;
 
     @ManyToOne
-    private Traveler traveler;
+    private Flight flight;
 
     @ManyToOne
-    private Flight flight;
+    private Traveler traveler;
 }

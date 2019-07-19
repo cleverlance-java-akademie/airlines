@@ -9,25 +9,24 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 public class Flight {
 
-    @Id
     @GeneratedValue
-
+    @Id
     private Long flightId;
 
     private String code;
+
+    private ZonedDateTime date;
 
     @ManyToOne
     private Destination start;
 
     @ManyToOne
     private Destination end;
-
-    private ZonedDateTime date;
 
     @OneToMany
     private List<Ticket> tickets;

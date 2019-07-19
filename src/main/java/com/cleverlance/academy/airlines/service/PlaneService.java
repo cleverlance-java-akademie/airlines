@@ -35,12 +35,13 @@ public class PlaneService implements IPlaneService {
     }
 
     @Override
-    public Optional<Plane> getPlaneById(Long planeId) {
+    public Optional<Plane> getPlaneById(final Long planeId) {
         return planeRepository.findById(planeId);
     }
 
     @Override
-    public Optional<Plane> getPlaneByRegCode(String code) {
-        return Optional.ofNullable(planeRepository.getPlaneByRegistrationCode(code));
+    public Optional<Plane> getPlaneByRegistrationCode(final String registrationCode) {
+        return Optional.ofNullable(
+                planeRepository.getPlaneByRegistrationCode(registrationCode));
     }
 }
