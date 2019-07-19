@@ -35,7 +35,7 @@ public class AirplaneController implements AirplanesApi {
                 .collect(Collectors.toList());
         AirplaneListGen response = new AirplaneListGen();
         response.addAll(responseList);
-        return new CompletableFuture.completedFuture(ResponseEntity.ok(response));
+        return CompletableFuture.completedFuture(ResponseEntity.ok(response));
     }
 
     @RequestMapping(path = "/airplanes/{regCode}", method = RequestMethod.GET)
