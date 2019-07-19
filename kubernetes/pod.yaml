@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: airlines
+  labels:
+    run: airlines-demo
+spec:
+  containers:
+  - image: 513657221347.dkr.ecr.eu-central-1.amazonaws.com/airlines:latest
+    name: kuard
+    ports:
+    - containerPort: 8080
+      name: http
+      protocol: TCP

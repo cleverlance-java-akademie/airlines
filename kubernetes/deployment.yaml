@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: airlines
+  name: airlines
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: airlines-demo
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: airlines-demo
+    spec:
+      containers:
+      - image: 513657221347.dkr.ecr.eu-central-1.amazonaws.com/airlines:latest
+        imagePullPolicy: IfNotPresent
+        name: airlines
+      restartPolicy: Always
